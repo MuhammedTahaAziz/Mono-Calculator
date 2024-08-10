@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Mono Calculator</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="my_framework.css">
+	<link rel="stylesheet" type="text/css" href="Calculator.css">
+
+</head>
+
+<body class="bg-black flex align-center vh-full relative hidden">
+	<div id="normalCal" class="first-calculator vh-full vw-full flex flex-center align-center">
+		<div class="toggleBtn w-20 h-20 z-10" value="0"></div>
+		<div class="childBtn z-100" value="0" id="childBtn"></div>
+		<div class="left-side h-450 font-45 font-bolder flex flex-start flex-column space-between absolute">
+			<div class="sin-text flex">
+				<h5 class="m-r-10">SIN</h5>
+				<input type="text" id="sin-num" class="inputbox scroll p-r-5">
+				<h5 class="function-results cursor-pointer sin-value" id="sin-value">0</h5>
+			</div>
+			<div class="cos-text flex">
+				<h5 class="m-r-10">COS</h5>
+				<input type="text" id="cos-num" class="inputbox scroll p-r-5">
+				<h5 class="function-results cursor-pointer cos-value" id="cos-value">0</h5>
+			</div>
+			<div class="tan-text flex">
+				<h5 class="m-r-10">TAN</h5>
+				<input type="text" id="tan-num" class="inputbox scroll p-r-5">
+				<h5 class="function-results cursor-pointer tan-value" id="tan-value">0</h5>
+			</div>
+			<div class="sqrt-text flex">
+				<h5 class="m-r-10">Sqrt</h5>
+				<input type="text" id="sqrt-num" class="inputbox scroll p-r-5">
+				<h5 class="function-results cursor-pointer sqrt-value" id="sqrt-value">0</h5>
+			</div>
+		</div>
+		<div id="center-calculator"
+			class="calculator left-1/2 translateX-1/2- w-375 h-500 mx-auto cal-black rounded-20 flex flex-column align-center absolute z-10">
+			<div class="display w-325 h-125 cal-black m-t-25 rounded-15 flex flex-end align-center">
+				<p class="font-35 text-white p-r-25 p-l-25 scroll" id="result"></p>
+			</div>
+			<div class="contents m-t-30 w-full flex flex-center">
+				<button
+					class="clear bg-red rounded-8 span border-2 black-border cursor-pointer font-20 font-bolder white"
+					id="clear">AC</button>
+				<button class="C-button rounded-8 span border-0 cursor-pointer font-20 font-bolder text-white"
+					id="C">C</button>
+				<button
+					class="division size-button text-white rounded-8 span border-0 cursor-pointer font-20 font-bolder"
+					id="/">/</button>
+				<button
+					class="multiplication size-button text-white rounded-8 span border-0 cursor-pointer font-20 font-bolder"
+					id="multiplication">*</button>
+				<button class="seven size-button text-white rounded-8 span border-0 cursor-pointer font-20 font-bolder"
+					id="7">7</button>
+				<button class="eight size-button text-white rounded-8 span border-0 cursor-pointer font-20 font-bolder"
+					id="8">8</button>
+				<button class="nine size-button text-white rounded-8 span border-0 cursor-pointer font-20 font-bolder"
+					id="9">9</button>
+				<button
+					class="division size-button text-white rounded-8 span border-0 cursor-pointer font-20 font-bolder"
+					id="sqrt">&Sqrt;</button>
+				<button
+					class="subtraction size-button text-white rounded-8 span border-0 cursor-pointer font-20 font-bolder"
+					id="minas">-</button>
+				<button class="four size-button text-white rounded-8 span border-0 cursor-pointer font-20 font-bolder"
+					id="4 font-bolder">4</button>
+				<button class="five size-button text-white rounded-8 span border-0 cursor-pointer font-20 font-bolder"
+					id="5">5</button>
+				<button class="six size-button text-white rounded-8 span border-0 cursor-pointer font-20 font-bolder"
+					id="6">6</button>
+				<button class="sin size-button text-white rounded-8 span border-0 cursor-pointer font-20 font-bolder"
+					id="sin">sin</button>
+				<button
+					class=" plus rounded-8 white bg-green span border-2 black-border cursor-pointer font-20 font-bolder white"
+					id="plus">+</button>
+				<button class="one size-button text-white rounded-8 span border-0 cursor-pointer font-20 font-bolder"
+					id="1">1</button>
+				<button class="two size-button text-white rounded-8 span border-0 cursor-pointer font-20 font-bolder"
+					id="2">2</button>
+				<button class="three size-button text-white rounded-8 span border-0 cursor-pointer font-20 font-bolder"
+					id="3">3</button>
+				<button class="eight size-button text-white rounded-8 span border-0 cursor-pointer font-20 font-bolder"
+					id="cos">cos</button>
+				<button class="zero size-button text-white rounded-8 span border-0 cursor-pointer font-20 font-bolder"
+					id="0">0</button>
+				<button
+					class="double-zero size-button text-white rounded-8 span border-0 cursor-pointer font-20 font-bolder"
+					id="00">00</button>
+				<button class="point size-button text-white rounded-8 span border-0 cursor-pointer font-20 font-bolder"
+					id=".">.</button>
+				<button class="tan size-button text-white rounded-8 span border-0 cursor-pointer font-20 font-bolder"
+					id="tan">tan</button>
+				<button
+					class="equal bg-blue equal size-button rounded-8 span border-2 black-border cursor-pointer font-20 font-bolder white"
+					id="equal">=</button>
+			</div>
+		</div>
+
+		<div class="history h-500 w-300 cal-black rounded-20 absolute" id="history">
+			<h1 class="m-t-70 m-b-35 font-35">recents</h1>
+			<div class="font-20" id="normalrecent">
+
+			</div>
+		</div>
+	</div>
+
+	<div class="child-calculator absolute flex flex-column none" id="beeCal">
+		<div class="background relative">
+			<div class="row flex">
+				<div class="back-row absolute top-0 bottom-0 right-0 left-0" style="background: #242424;">
+				</div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+			</div>
+			<div class="row flex">
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+
+			</div>
+			<div class="row flex">
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+			</div>
+			<div class="row flex">
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+			</div>
+			<div class="row flex">
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+			</div>
+			<div class="row flex">
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+			</div>
+			<div class="row flex">
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+			</div>
+			<div class="row flex">
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+			</div>
+			<div class="row flex">
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+			</div>
+			<div class="row flex">
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+			</div>
+			<div class="row flex">
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+			</div>
+			<div class="row flex">
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+			</div>
+			<div class="row flex">
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+			</div>
+			<div class="row flex">
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+			</div>
+			<div class="row flex">
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+			</div>
+			<div class="row flex">
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+			</div>
+			<div class="row flex">
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+			</div>
+			<div class="row flex">
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+			</div>
+			<div class="row flex">
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+			</div>
+			<div class="row flex">
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+				<div class="hexagon"></div>
+			</div>
+		</div>
+
+
+		<div class="cal-Btn z-100" value="0" id="calBtn">
+			<svg height="35px" width="35px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+				xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 508 508" xml:space="preserve" fill="#000000">
+
+				<g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+				<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+				<g id="SVGRepo_iconCarrier">
+					<circle style="fill:#c4c4c4;" cx="254" cy="254" r="254" />
+					<path style="fill:#FFFFFF;"
+						d="M370.4,430.4H137.6c-12,0-21.6-9.6-21.6-21.6V99.2c0-12,9.6-21.6,21.6-21.6h232.8 c12,0,21.6,9.6,21.6,21.6v309.6C392,420.8,382.4,430.4,370.4,430.4z" />
+					<path style="fill:#dedede;"
+						d="M365.6,170.8H142.4c-3.2,0-5.6-2.4-5.6-5.6v-62.4c0-3.2,2.4-5.6,5.6-5.6h222.8c3.2,0,5.6,2.4,5.6,5.6 v62.8C371.2,168.4,368.4,170.8,365.6,170.8z" />
+					<path style="fill:#c4c4c4;"
+						d="M365.6,97.2h-36.4L250,170.8h115.6c3.2,0,5.6-2.4,5.6-5.6v-62.4C371.2,99.6,368.4,97.2,365.6,97.2z" />
+					<g>
+						<path style="fill:#8b959c;"
+							d="M173.2,365.2h-32.4c-2.4,0-4,1.6-4,4v32.4c0,2.4,1.6,4,4,4h32.4c2.4,0,4-1.6,4-4v-32.4 C177.2,367.2,175.6,365.2,173.2,365.2z" />
+						<path style="fill:#8b959c;"
+							d="M238,365.2h-32.4c-2.4,0-4,1.6-4,4v32.4c0,2.4,1.6,4,4,4H238c2.4,0,4-1.6,4-4v-32.4 C242,367.2,240,365.2,238,365.2z" />
+						<path style="fill:#8b959c;"
+							d="M302.4,365.2H270c-2.4,0-4,1.6-4,4v32.4c0,2.4,1.6,4,4,4h32.4c2.4,0,4-1.6,4-4v-32.4 C306.4,367.2,304.8,365.2,302.4,365.2z" />
+						<path style="fill:#8b959c;"
+							d="M173.2,307.2h-32.4c-2.4,0-4,1.6-4,4v32.4c0,2.4,1.6,4,4,4h32.4c2.4,0,4-1.6,4-4v-32.4 C177.2,308.8,175.6,307.2,173.2,307.2z" />
+						<path style="fill:#8b959c;"
+							d="M238,307.2h-32.4c-2.4,0-4,1.6-4,4v32.4c0,2.4,1.6,4,4,4H238c2.4,0,4-1.6,4-4v-32.4 C242,308.8,240,307.2,238,307.2z" />
+						<path style="fill:#8b959c;"
+							d="M302.4,307.2H270c-2.4,0-4,1.6-4,4v32.4c0,2.4,1.6,4,4,4h32.4c2.4,0,4-1.6,4-4v-32.4 C306.4,308.8,304.8,307.2,302.4,307.2z" />
+						<path style="fill:#8b959c;"
+							d="M367.2,307.2h-32.4c-2,0-4,1.6-4,4V402c0,2,1.6,4,4,4h32.4c2,0,4-1.6,4-4v-90.8 C371.2,308.8,369.2,307.2,367.2,307.2z" />
+						<path style="fill:#8b959c;"
+							d="M173.2,248.8h-32.4c-2.4,0-4,1.6-4,4v32.4c0,2.4,1.6,4,4,4h32.4c2.4,0,4-1.6,4-4v-32.4 C177.2,250.4,175.6,248.8,173.2,248.8z" />
+						<path style="fill:#8b959c;"
+							d="M238,248.8h-32.4c-2.4,0-4,1.6-4,4v32.4c0,2.4,1.6,4,4,4H238c2.4,0,4-1.6,4-4v-32.4 C242,250.4,240,248.8,238,248.8z" />
+						<path style="fill:#8b959c;"
+							d="M302.4,248.8H270c-2.4,0-4,1.6-4,4v32.4c0,2.4,1.6,4,4,4h32.4c2.4,0,4-1.6,4-4v-32.4 C306.4,250.4,304.8,248.8,302.4,248.8z" />
+						<path style="fill:#8b959c;"
+							d="M367.2,248.8h-32.4c-2.4,0-4,1.6-4,4v32.4c0,2.4,1.6,4,4,4h32.4c2.4,0,4-1.6,4-4v-32.4 C371.2,250.4,369.2,248.8,367.2,248.8z" />
+						<path style="fill:#8b959c;"
+							d="M173.2,190.4h-32.4c-2.4,0-4,1.6-4,4v32.4c0,2.4,1.6,4,4,4h32.4c2.4,0,4-1.6,4-4v-32.4 C177.2,192.4,175.6,190.4,173.2,190.4z" />
+						<path style="fill:#8b959c;"
+							d="M238,190.4h-32.4c-2.4,0-4,1.6-4,4v32.4c0,2.4,1.6,4,4,4H238c2.4,0,4-1.6,4-4v-32.4 C242,192.4,240,190.4,238,190.4z" />
+						<path style="fill:#8b959c;"
+							d="M302.4,190.4H270c-2.4,0-4,1.6-4,4v32.4c0,2.4,1.6,4,4,4h32.4c2.4,0,4-1.6,4-4v-32.4 C306.4,192.4,304.8,190.4,302.4,190.4z" />
+						<path style="fill:#8b959c;"
+							d="M367.2,190.4h-32.4c-2.4,0-4,1.6-4,4v32.4c0,2.4,1.6,4,4,4h32.4c2.4,0,4-1.6,4-4v-32.4 C371.2,192.4,369.2,190.4,367.2,190.4z" />
+					</g>
+				</g>
+
+			</svg>
+		</div>
+
+		<div class="h-475">
+			<div class="cal-hexagon w-525 h-475 cal-black flex flex-center flex-column align-center flex-end">
+				<div class="hexa-display fixed" id="hexa-display">
+					<p class="overflow-x-scroll" id="hexaresult"></p>
+				</div>
+				<div class="flex flex-center flex-column align-center m-b-15">
+					<div class="row1 flex flex-center">
+						<div class="hexbtn" id="hexaAC">AC</div>
+						<div class="hexbtn" id="hexaC">C</div>
+						<div class="hexbtn" id="hexa/">/</div>
+						<div class="hexbtn" id="hexa*">*</div>
+						<div class="hexbtn" id="hexa-">-</div>
+						<div class="hexbtn" id="hexa+">+</div>
+					</div>
+					<div class="row2 flex">
+						<div class="hexbtn" id="hexa1">1</div>
+						<div class="hexbtn" id="hexa2">2</div>
+						<div class="hexbtn" id="hexa3">3</div>
+						<div class="hexbtn" id="hexa4">4</div>
+						<div class="hexbtn" id="hexa5">5</div>
+					</div>
+					<div class="row3 flex">
+						<div class="hexbtn" id="hexa6">6</div>
+						<div class="hexbtn" id="hexa7">7</div>
+						<div class="hexbtn" id="hexa8">8</div>
+						<div class="hexbtn" id="hexa9">9</div>
+					</div>
+					<div class="row4 flex">
+						<div class="hexbtn" id="hexa0">0</div>
+						<div class="hexbtn" id="hexa.">.</div>
+						<div class="hexbtn" id="hexaequal">=</div>
+					</div>
+				</div>
+			</div>
+			<div class="hex-recent h-475 w-375 font-bolder font-20">
+				<h2 class="font-bolder m-t-75 m-b-40">recents</h2>
+				<div id="recent">
+					
+				</div>
+			</div>
+	
+			<div class="bee-div fixed">
+				<div class="bee h-375 w-150">
+					<div class="bee__wing bee__wing--left"></div>
+					<div class="bee__wing bee__wing--right"></div>
+					<div class="bee__oval bee__oval--top"></div>
+					<div class="bee__rect"></div>
+					<div class="bee__rect"> </div>
+					<div class="bee__oval bee__oval--bottom"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- 
+	<script type="module">
+		// Import the functions you need from the SDKs you need
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+		import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
+		// TODO: Add SDKs for Firebase products that you want to use
+		// https://firebase.google.com/docs/web/setup#available-libraries
+
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		const firebaseConfig = {
+			apiKey: "AIzaSyDQLNKT7GQ6jdBXzpian5QnB7rhB36ydgg",
+			authDomain: "calculator-v001.firebaseapp.com",
+			projectId: "calculator-v001",
+			storageBucket: "calculator-v001.appspot.com",
+			messagingSenderId: "1061310571257",
+			appId: "1:1061310571257:web:df8866be7b22bd42017828",
+			measurementId: "G-4TLGJT624P"
+		};
+
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+		const analytics = getAnalytics(app);
+	</script> -->
+
+	<script type="text/javascript" src="Calculator.js"></script>
+</body>
+
+</html>

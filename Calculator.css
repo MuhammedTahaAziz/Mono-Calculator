@@ -1,0 +1,694 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+	font-family: sans-serif, serif;
+}
+
+:root {
+	--red: #f74239;
+	--dark-red: #bf1111;
+	--light-red: #ef5353;
+	--green: #33a738;
+	--dark-green: #117f11;
+	--light-green: #51e551;
+	--blue: #1c98fa;
+	--dark-blue: #1161af;
+	--light-blue: #15c7ff;
+
+	--white-shadow: #fffffe;
+	--smoke-shadow: #cacaca;
+	--bg-white: #e8e8e8;
+	--text-white: #eaeaea;
+
+	--bg-black: #2c2c30;
+	--cal-black: #333336;
+	--black-shadow: #212222;
+	--light-shadow: #3f3d41;
+	--zero-opacity: #ffffff00;
+
+	--black-border: #212222;
+	--honey1: #ffd79c;
+	--honey2: #feb825;
+	--honey3: #ff9623;
+	--honey4: #db6f02;
+	--honey5: #ad5100;
+}
+
+/* ----------------- colors ----------------- */
+.bg-red {
+	background-color: var(--red)
+}
+
+.bg-green {
+	background-color: var(--green);
+}
+
+.bg-blue {
+	background-color: var(--blue)
+}
+
+
+.text-white {
+	color: var(--text-white);
+}
+
+.bg-white {
+	background-color: var(--bg-white);
+}
+
+.white-shadow {
+	color: var(--white-shadow)
+}
+
+.smoke-shadow {
+	color: var(--smoke-shadow);
+}
+
+
+.bg-black {
+	background-color: var(--bg-black);
+}
+
+.cal-black {
+	background-color: var(--cal-black);
+}
+
+.black-shadow {
+	color: var(--black-shadow);
+}
+
+.light-shadow {
+	color: var(--light-shadow);
+}
+
+.text-black {
+	color: var(--text-black);
+}
+
+.black-border {
+	border-color: var(--black-border);
+}
+
+.white {
+	color: #fff8fc;
+}
+
+
+/* --------------- First Calculator --------------- */
+
+.size-button {
+	width: 45px;
+	height: 45px;
+}
+
+.toggleBtn {
+	/* awa dugmakay sarawaya ka modakay dagoretn */
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	border-radius: 50%;
+	background-color: var(--text-white);
+	cursor: pointer;
+	box-shadow: 5px 5px 12px 3px var(--black-shadow), -5px -5px 12px 3px var(--light-shadow);
+}
+
+.calculator {
+	box-shadow: 10px 10px 14px 0.6px var(--black-shadow), -10px -9px 15px 1px var(--light-shadow);
+}
+
+button {
+	/* awa lasar tagy buttonakan eshdakatn */
+	box-shadow: 4px 4px 8px 1px var(--black-shadow), -5px -5px 8px 1px var(--light-shadow), inset 6px 6px 10px 2px var(--zero-opacity), inset -8px -8px 15px 5px var(--zero-opacity);
+	background-color: inherit;
+	transition: all 0.15s;
+}
+
+button:active {
+	box-shadow: 3px 3px 8px 2px var(--zero-opacity), -5px -5px 8px 2px var(--zero-opacity), inset 6px 6px 12px 2px var(--black-shadow), inset -8px -8px 15px 5px var(--light-shadow);
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#clear {
+	/* awa active w eshkrdny dugmay cleara */
+	box-shadow: 4px 4px 8px 0px var(--black-shadow), -5px -5px 8px 0px var(--light-shadow), inset 6px 6px 10px 2px var(--zero-opacity), inset -8px -8px 15px 5px var(--zero-opacity);
+	height: 45px;
+	grid-column: span 2;
+	transition: all 0.15s;
+}
+
+#clear:active {
+	box-shadow: 3px 3px 8px 2px var(--zero-opacity), -5px -5px 8px 2px var(--zero-opacity), inset 6px 6px 15px 5px var(--dark-red), inset -9px -9px 15px 5px var(--light-red);
+	font-size: 17px;
+	font-weight: bold;
+}
+
+#plus {
+	/* awa active w eshkrdny dugmay plusa */
+	box-shadow: 4px 4px 8px 1px var(--black-shadow), -5px -5px 8px 1px var(--light-shadow), inset 6px 6px 10px 2px var(--zero-opacity), inset -9px -9px 15px 5px var(--zero-opacity);
+	width: 45px;
+	grid-row: span 2;
+	transition: all 0.15s;
+}
+
+#plus:active {
+	box-shadow: 3px 3px 8px 2px var(--zero-opacity), -5px -5px 8px 2px var(--zero-opacity), inset 6px 6px 15px 5px var(--dark-green), inset -9px -9px 15px 5px var(--light-green);
+	font-size: 17px;
+	font-weight: bold;
+}
+
+#equal {
+	/* awa active w eshkrdny dugmay yaksanaya */
+	box-shadow: 4px 4px 8px 1px var(--black-shadow), -5px -5px 8px 1px var(--light-shadow), inset 6px 6px 10px 2px var(--zero-opacity), inset -9px -9px 15px 5px var(--zero-opacity);
+	transition: all 0.15s;
+}
+
+#equal:active {
+	box-shadow: 3px 3px 8px 2px var(--zero-opacity), -5px -5px 8px 2px var(--zero-opacity), inset 6px 6px 15px 5px var(--dark-blue), inset -9px -9px 15px 5px var(--light-blue);
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.display {
+	box-shadow: inset 11px 11px 18px var(--black-shadow), inset -13px -13px 18px var(--light-shadow);
+	white-space: nowrap;
+	/*all text on one line with no wrapping on the second line*/
+	/* word-spacing: 400px; */
+}
+
+.display p{
+	height: inherit;
+	padding-top: 42px;
+}
+
+.display .scroll {
+	overflow-y: hidden;
+	overflow-x: scroll;
+}
+
+/* ----------------- grid ----------------- */
+
+.contents {
+	display: grid;
+	grid-template-columns: auto auto auto auto auto;
+	grid-template-rows: auto auto auto auto auto;
+	column-gap: 20px;
+	grid-row-gap: 17px;
+}
+
+/* -----------------  ----------------- */
+
+.history {
+	/* awa divy recentakaya */
+	box-shadow: 10px 10px 14px 0.6px var(--black-shadow), -10px -9px 15px 1px var(--light-shadow);
+	right: 50px;
+	color: var(--blue);
+	padding-left: 30px;
+}
+
+.left-side {
+	/* awa positiony bashy lay chapy calculatorakaya sin w cos tan w sqrt*/
+	left: 43px;
+	margin-top: -33px;
+	color: var(--blue);
+	letter-spacing: 4px;
+	text-shadow: 5px 4px 6px var(--black-shadow), 5px 5px 6px var(--black-shadow), -2px -2px 6px var(--light-shadow), -3px -3px 6px var(--light-shadow);
+}
+
+.inputbox {
+	height: 48px;
+	font-size: 17px;
+	color: var(--blue);
+	outline: none;
+	padding-left: 10px;
+	/* margin-left: 15px; */
+	background-color: var(--cal-black);
+	border: 0px;
+	border-radius: 6px;
+	box-shadow: inset 5px 5px 9px var(--black-shadow), inset -5px -5px 8px var(--light-shadow);
+	transition: all 0.1s;
+	z-index: 10;
+}
+
+.inputbox:hover {
+	cursor: pointer;
+}
+
+#sin-num {
+	width: 250px;
+}
+
+#cos-num {
+	width: 231.4px;
+}
+
+#tan-num {
+	width: 238.8px;
+}
+
+#sqrt-num {
+	width: 234px;
+}
+
+#sin-value,
+#cos-value,
+#tan-value,
+#sqrt-value {
+	position: absolute;
+	left: 178px;
+	margin-top: 0px;
+	font-size: 20px;
+	text-shadow: none;
+	transition: all 0.5s;
+	opacity: 0;
+}
+
+.inputbox.result+#sin-value,
+.inputbox.result+#cos-value,
+.inputbox.result+#tan-value,
+.inputbox.result+#sqrt-value {
+	opacity: 1;
+	margin-top: 55px;
+	/* transition: all 0.5s; */
+
+}
+
+
+/* ----------------- Child Calculator ----------------- */
+
+.child-calculator {
+	left: 0px;
+	z-index: 20;
+	top: 0px;
+	overflow: unset;
+}
+
+.back-row {
+	bottom: -1%;
+
+}
+
+.background {
+	top: -34px;
+}
+
+.row {
+	margin-top: -18px;
+	margin-left: 0px;
+}
+
+.row:nth-child(even) {
+	margin-left: -34.34px;
+}
+
+.childBtn {
+	/* awa dugmakay sarawaya ka modakay dagoretn la hasiba raesiakay */
+	width: 27px;
+	height: 30px;
+	position: absolute;
+	top: 23px;
+	left: 23px;
+	bottom: 0px;
+	background: #111;
+	cursor: pointer;
+	clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+	transition: 2s;
+}
+
+.cal-Btn {
+	/* awa dugmakay sarawaya ka modakay dagoretn */
+	width: 70px;
+	height: 70px;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	bottom: 0px;
+	cursor: pointer;
+}
+
+.hexagon {
+	width: 65.46px;
+	height: 70px;
+	position: relative;
+	top: 23px;
+	bottom: 4px;
+	left: -10px;
+	margin: 1px;
+	background: #111;
+	clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+	transition: 2s;
+}
+
+.hexagon:hover,
+.childBtn:hover {
+	transition: 0s;
+	background: var(--honey4);
+	color: #111;
+}
+
+.hexagon:before,
+.childBtn:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	right: 100%;
+	width: 50%;
+	height: 100%;
+	pointer-events: none;
+	background: rgba(255, 255, 255, 0.01);
+	z-index: 10;
+}
+
+.hexagon:after,
+.childBtn:after {
+	content: '';
+	position: absolute;
+	top: 2px;
+	bottom: 2px;
+	left: 2px;
+	right: 2px;
+	background: #111;
+	clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+	z-index: 1;
+}
+
+/* ----------------- calculator contents ----------------- */
+
+.cal-hexagon {
+	position: fixed;
+	bottom: 50%;
+	left: 50%;
+	background: var(--honey3);
+	clip-path: polygon(28% 0%, 72% 0%, 100% 50%, 72% 100%, 28% 100%, 0% 50%);
+	transform: translate(-50%, 50%);
+	z-index: 10;
+}
+
+
+.hexa-display {
+	width: 430px;
+	height: 175px;
+	background: #111;
+	color: var(--honey4);
+	top: 3.5%;
+	display: flex;
+	justify-content: center;
+	font-size: 40px;
+	font-weight: bolder;
+	clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
+	white-space: nowrap;
+	word-spacing: 400px;
+}
+
+.hexa-display p {
+	height: inherit;
+	padding-top: 65px;
+	padding-left: 20%;
+	padding-right: 20%;
+}
+
+.hexa-display:after {
+	content: '';
+	clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 50%, 25% 50%, 0% 50%);
+	z-index: 10;
+}
+
+.hexbtn {
+	/* -- awa styley dugmakany hasibakaya -- */
+	width: 70.46px;
+	height: 75px;
+	background: #111;
+	border: 0px;
+	color: var(--honey4);
+	position: relative;
+	margin: 1px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+	font-weight: bolder;
+	cursor: pointer;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+	transition: 2s;
+}
+
+.hexbtn:hover {
+	transition: 0s;
+	background: var(--honey5);
+	color: #111;
+}
+
+.row3 {
+	/* -- awa transatey seyam rowy dugmakana away 4 hexa gonaka -- */
+	transform: translateY(19px);
+}
+
+.row2 {
+	/* -- awa transatey dwam rowy dugmakana away 6 hexa gonaka -- */
+	transform: translateY(38px);
+}
+
+.row1 {
+	/* -- awa transatey yakam rowy dugmakana away 8 hexa gonaka -- */
+	transform: translateY(57px);
+}
+
+.hex-recent {
+	/* -- awa history calculatora hexagonakaya -- */
+	position: fixed;
+	bottom: 50%;
+	left: 17.5%;
+	background: var(--honey3);
+	transform: translate(-50%, 50%);
+	clip-path: polygon(0% 0%, 45% 0, 75% 50%, 45% 100%, 0% 100%);
+	overflow: auto;
+	/*it take values scroll, auto, visible or hidden to make it ellipsis .. overflow must be hidden first then add text overflow*/
+	padding-right: 20%;
+	padding-left: 1.6%;
+	padding-bottom: 1%;
+	overflow-x: hidden;
+}
+
+
+/* awa divy hangakaya */
+
+.bee {
+	width: 180px;
+	height: 325px;
+	margin: 0 auto;
+	position: absolute;
+	right: 9%;
+	top: 0;
+	/* transform: translateY(-50%); */
+	cursor: pointer;
+}
+
+.bee-div {
+	right: 9%;
+    top: 50%;
+    transform: translateY(-171px);
+}
+
+.bee.move {
+	animation-name: move;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes move {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	25% {
+		transform: rotate(-15deg);
+	}
+
+	50% {
+		transform: rotate(15deg);
+	}
+}
+
+.bee.fly {
+	animation-name: fly;
+	animation-duration: 1s;
+	animation-iteration-count: 2;
+	animation-timing-function: linear;
+}
+
+@keyframes fly {
+	0% {
+		transform: scale(1, 1);
+		top: 0px;
+		opacity: 1;
+	}
+
+	25% {
+		transform: scale(0.6, 0.6);
+		top: 0px;
+		opacity: 1;
+	}
+
+	45% {
+		transform: scale(0.6, 0.6);
+		top: -1000px;
+		opacity: 1;
+	}
+
+	48% {
+		transform: scale(0.6, 0.6);
+		top: -1000px;
+		opacity: 0;
+	}
+
+	50% {
+		transform: scale(0.6, 0.6);
+		top: 2000px;
+		opacity: 0;
+	}
+
+	60% {
+		transform: scale(0.6, 0.6);
+		top: 1000px;
+		opacity: 1;
+	}
+
+	75% {
+		transform: scale(0.8, 0.8);
+		top: 0px;
+		opacity: 1;
+	}
+
+	100% {
+		transform: scale(1, 1);
+		top: 0px;
+		opacity: 1;
+	}
+}
+
+
+.bee__rect {
+	margin: 0 auto;
+	width: 125px;
+	height: 60px;
+	background: var(--honey4);
+	;
+	margin-top: 20%;
+}
+
+.bee__oval {
+	width: 125px;
+	height: 65px;
+	background: var(--honey4);
+	;
+	border-radius: 50% 50% 0 0/100% 100% 0 0;
+	margin: 0 auto;
+}
+
+.bee__oval--top:after,
+.bee__oval--top:before {
+	content: "";
+	position: absolute;
+	top: -13%;
+	width: 55px;
+	height: 55px;
+	border: 3.5px solid transparent;
+	border-top-color: var(--honey4);
+	;
+	border-radius: 50%;
+}
+
+.bee__oval--top:before {
+	transform: rotate(45deg);
+	left: 1%;
+}
+
+.bee__oval--top:after {
+	transform: rotate(-45deg);
+	right: 1%;
+}
+
+.bee__oval--bottom {
+	transform: rotate(180deg);
+	margin-top: 35px;
+	position: relative;
+}
+
+.bee__oval--bottom:after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: 60px;
+	transform: translateX(-50%);
+	width: 1px;
+	height: 25px;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-bottom: 45px solid var(--honey4);
+}
+
+.bee__wing {
+	position: absolute;
+	top: 25%;
+	width: 57%;
+	height: 67%;
+	background-color: #fde8cb;
+	border-radius: 50% 50% 50% 50%/65% 65% 35% 35%;
+}
+
+.bee__wing--left {
+	left: -25%;
+	transform: rotate(25deg) rotateX(0);
+	-webkit-animation: fly-l 0.5s infinite alternate;
+	animation: fly-l 0.5s infinite alternate;
+}
+
+.bee__wing--right {
+	right: -25%;
+	transform: rotate(-25deg);
+	-webkit-animation: fly-r 0.5s infinite alternate;
+	animation: fly-r 0.5s infinite alternate;
+}
+
+@-webkit-keyframes fly-l {
+	100% {
+		transform: rotate(36.5deg) rotateX(16.5deg);
+	}
+}
+
+@keyframes fly-l {
+	100% {
+		transform: rotate(36.5deg) rotateX(16.5deg);
+	}
+}
+
+@-webkit-keyframes fly-r {
+	100% {
+		transform: rotate(-36.5deg) rotateX(-16.5deg);
+	}
+}
+
+@keyframes fly-r {
+	100% {
+		transform: rotate(-36.5deg) rotateX(-16.5deg);
+	}
+}
+
+#result::-webkit-scrollbar {
+    width: 0px;
+}
+
+#hexaresult{
+	overflow-x: scroll;
+}
+#hexaresult::-webkit-scrollbar {
+    width: 0px;
+}
